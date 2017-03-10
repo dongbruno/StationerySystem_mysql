@@ -1,35 +1,35 @@
 ﻿define([], function () {
     return {
-        defaultRoute: '/form',
+        defaultRoute: '/show/stationery',
         routes: {
-            'form': {
-                templateUrl: 'views/form.html',
-                url: '/form',
-                dependencies: ['controller/formController'],
-                allowAnonymous: true
-            },
-            'form.required': {
-                templateUrl: 'views/form-required.html',
-                url: '/required',
+            'show': {
+                templateUrl: 'views/show.html',
+                url: '/show',
                 dependencies: [],
                 allowAnonymous: true
             },
-            'form.optional': {
-                templateUrl: 'views/form-optional.html',
-                url: '/optional',
-                dependencies: [],
+            'show.stationery': {
+                templateUrl: 'views/show-stationery.html',
+                url: '/stationery',
+                dependencies: ['controller/stationeryController'],
+                allowAnonymous: true
+            },
+            'show.order': {
+                templateUrl: 'views/show-order.html',
+                url: '/order',
+                dependencies: ['controller/orderController', 'filter/shortNameFilter'],
                 allowAnonymous: true
             }, 
-            'form.confirm': {
-                templateUrl: 'views/form-confirm.html',
-                url: '/confirm',
-                dependencies: [],
+            'show.adminTools': {
+                templateUrl: 'views/show-adminTools.html',
+                url: '/adminTools',
+                dependencies: ['controller/adminToolsController'],
                 allowAnonymous: true
             },
-            'login':{
-            	 templateUrl: 'views/login.html',
-                 url: '/login',
-                 dependencies: ['controller/loginController'],
+            'show.cart':{
+            	 templateUrl: 'views/show-cart.html',
+                 url: '/cart',
+                 dependencies: ['controller/cartController'],
                  allowAnonymous: true
             }
             

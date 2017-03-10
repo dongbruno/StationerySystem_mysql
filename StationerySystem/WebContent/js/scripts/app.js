@@ -1,6 +1,6 @@
-define([ 'routes', 'loader', 'angularAMD', 'ui-bootstrap',
+define([ 'routes', 'loader', 'angularAMD', 'wdatePicker', 'ui-bootstrap',
 		'angular-sanitize', 'blockUI', 'ui.route' ], function(config, loader,
-		angularAMD) {
+		angularAMD, wdatePicker) {
 	var app = angular.module("webapp", [  'ngSanitize',
 			'ui.bootstrap', 'ui.router' ]);
 

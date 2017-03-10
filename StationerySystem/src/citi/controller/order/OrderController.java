@@ -1,7 +1,5 @@
-package citi.controller.stationery;
-
-import org.springframework.stereotype.Controller;
-
+package citi.controller.order;
+import java.io.File;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,23 +21,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.entity.Order;
 import citi.service.order.OrderService;
-import citi.service.stationery.StationeryService;
 @Controller
-public class StationeryController {
-	private static final Log logger = LogFactory.getLog(StationeryController.class);
+public class OrderController {
+	private static final Log logger = LogFactory.getLog(OrderController.class);
 	
-	@Resource(name = "stationeryServiceImpl")
-	StationeryService stationeryServiceImpl;
-	@RequestMapping(value = "/getStationery", method = RequestMethod.GET)
+	@Resource(name = "OrderServiceImpl")
+	OrderService orderServiceImpl;
+	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getOrders(){
-		List<Order> result = stationeryServiceImpl.getStationery();
+		List<Order> result = orderServiceImpl.getOrders();
 		if(logger.isDebugEnabled()){
-			logger.debug("getStationery="+result);
+			logger.debug("getOrders="+result);
 		}
 		return result;
 	}
 	
-			
+	@RequestMapping(value = "/saveOrders", method = RequestMethod.GET)
+	@ResponseBody
+	public String saveOrders(){
+		String result = orderServiceImpl.saveOrders();
+		if(logger.isDebugEnabled()){
+			logger.debug("saveOrders="+result);
+		}
+		return result;
+	}
+	@RequestMapping(value = "/submitOrders", method = RequestMethod.GET)
+	@ResponseBody
+	public String submitOrders(){
+		String result = orderServiceImpl.submitOrders();
+		if(logger.isDebugEnabled()){
+			logger.debug("submitOrders="+result);
+		}
+		return result;
+	}
+	
 
 }
