@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final -->
+<!-- Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
     <class name="citi.hibernate.entity.Staff" table="staff" catalog="ssdb" optimistic-lock="version">
         <id name="soeId" type="string">

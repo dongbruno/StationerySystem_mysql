@@ -1,4 +1,4 @@
-package citi.controller.order;
+package citi.controller.orders;
 import java.io.File;
 import java.util.List;
 
@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.hibernate.entity.Orders;
-import citi.service.order.OrderService;
+import citi.service.orders.OrdersService;
 @Controller
-public class OrderController {
-	private static final Log logger = LogFactory.getLog(OrderController.class);
+public class OrdersController {
+	private static final Log logger = LogFactory.getLog(OrdersController.class);
 	
 	@Resource(name = "OrderServiceImpl")
-	OrderService orderServiceImpl;
+	OrdersService orderServiceImpl;
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getOrders(){

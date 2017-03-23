@@ -1,5 +1,5 @@
 package citi.hibernate.entity;
-// Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final
+// Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Stationery implements java.io.Serializable {
 
-	private int stationeryId;
+	private Integer stationeryId;
 	private String kind;
 	private String name;
 	private String standard;
@@ -20,16 +20,14 @@ public class Stationery implements java.io.Serializable {
 	public Stationery() {
 	}
 
-	public Stationery(int stationeryId, String kind, String name, String standard, BigDecimal price) {
-		this.stationeryId = stationeryId;
+	public Stationery(String kind, String name, String standard, BigDecimal price) {
 		this.kind = kind;
 		this.name = name;
 		this.standard = standard;
 		this.price = price;
 	}
 
-	public Stationery(int stationeryId, String kind, String name, String standard, BigDecimal price, Set orderses) {
-		this.stationeryId = stationeryId;
+	public Stationery(String kind, String name, String standard, BigDecimal price, Set orderses) {
 		this.kind = kind;
 		this.name = name;
 		this.standard = standard;
@@ -37,11 +35,11 @@ public class Stationery implements java.io.Serializable {
 		this.orderses = orderses;
 	}
 
-	public int getStationeryId() {
+	public Integer getStationeryId() {
 		return this.stationeryId;
 	}
 
-	public void setStationeryId(int stationeryId) {
+	public void setStationeryId(Integer stationeryId) {
 		this.stationeryId = stationeryId;
 	}
 

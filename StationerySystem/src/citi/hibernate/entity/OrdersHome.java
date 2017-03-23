@@ -1,5 +1,5 @@
 package citi.hibernate.entity;
-// Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final
+// Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -85,7 +85,7 @@ public class OrdersHome {
 		}
 	}
 
-	public Orders findById(int id) {
+	public Orders findById(java.lang.Integer id) {
 		log.debug("getting Orders instance with id: " + id);
 		try {
 			Orders instance = (Orders) sessionFactory.getCurrentSession().get("citi.hibernate.entity.Orders", id);

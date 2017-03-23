@@ -73,7 +73,8 @@
 		class="csts.bookstationery.service.common.module.Stationery" /> <bean id="bean" 
 		class="csts.bookstationery.service.common.module.Sort" /> 
 -->
-<context:component-scan base-package="csts.bookstationery.controller"/>
+<context:annotation-config/> 
+<context:component-scan base-package="citi.*"/>
 <!--  静态资源  -->
 <mvc:resources mapping="/style/**" location="/style/"/>
 <mvc:resources mapping="/js/**" location="/js/"/>

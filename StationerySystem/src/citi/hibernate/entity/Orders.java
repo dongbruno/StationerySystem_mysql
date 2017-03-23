@@ -1,5 +1,5 @@
 package citi.hibernate.entity;
-// Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final
+// Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Orders implements java.io.Serializable {
 
-	private int orderId;
+	private Integer orderId;
 	private Staff staff;
 	private Stationery stationery;
 	private int quantity;
@@ -17,25 +17,23 @@ public class Orders implements java.io.Serializable {
 	public Orders() {
 	}
 
-	public Orders(int orderId, int quantity, Date date) {
-		this.orderId = orderId;
+	public Orders(int quantity, Date date) {
 		this.quantity = quantity;
 		this.date = date;
 	}
 
-	public Orders(int orderId, Staff staff, Stationery stationery, int quantity, Date date) {
-		this.orderId = orderId;
+	public Orders(Staff staff, Stationery stationery, int quantity, Date date) {
 		this.staff = staff;
 		this.stationery = stationery;
 		this.quantity = quantity;
 		this.date = date;
 	}
 
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return this.orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 

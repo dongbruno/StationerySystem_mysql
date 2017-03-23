@@ -1,5 +1,5 @@
 package citi.hibernate.entity;
-// Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final
+// Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class System implements java.io.Serializable {
 
-	private int systemId;
+	private Integer systemId;
 	private String note;
 	private Date deadline;
 	private Date date;
@@ -17,25 +17,23 @@ public class System implements java.io.Serializable {
 	public System() {
 	}
 
-	public System(int systemId, Date date, String operator) {
-		this.systemId = systemId;
+	public System(Date date, String operator) {
 		this.date = date;
 		this.operator = operator;
 	}
 
-	public System(int systemId, String note, Date deadline, Date date, String operator) {
-		this.systemId = systemId;
+	public System(String note, Date deadline, Date date, String operator) {
 		this.note = note;
 		this.deadline = deadline;
 		this.date = date;
 		this.operator = operator;
 	}
 
-	public int getSystemId() {
+	public Integer getSystemId() {
 		return this.systemId;
 	}
 
-	public void setSystemId(int systemId) {
+	public void setSystemId(Integer systemId) {
 		this.systemId = systemId;
 	}
 

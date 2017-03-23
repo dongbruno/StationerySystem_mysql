@@ -1,11 +1,11 @@
-package citi.service.order;
+package citi.service.orders;
 
 import java.util.List;
 
 import citi.hibernate.entity.Orders;
 
 
-public interface OrderService {
+public interface OrdersService {
 
 	List<Orders> getOrders();
 

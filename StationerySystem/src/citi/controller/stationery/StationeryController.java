@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.hibernate.entity.Orders;
-import citi.service.order.OrderService;
+import citi.service.orders.OrdersService;
 import citi.service.stationery.StationeryService;
 @Controller
 public class StationeryController {
