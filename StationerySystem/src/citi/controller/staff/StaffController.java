@@ -1,8 +1,9 @@
-package citi.controller.user;
+package citi.controller.staff;
 
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,22 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.controller.stationery.StationeryController;
-import citi.entity.Order;
-import citi.entity.User;
+import citi.hibernate.entity.Staff;
+import citi.service.staff.StaffService;
 import citi.service.stationery.StationeryService;
-import citi.service.user.UserService;
 
-public class UserController {
-private static final Log logger = LogFactory.getLog(UserController.class);
+public class StaffController {
+private static final Log logger = LogFactory.getLog(StaffController.class);
 	
 	@Resource(name = "userServiceImpl")
-	UserService userServiceImpl;
+	StaffService userServiceImpl;
 	@RequestMapping(value = "/getUser", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getUser(HttpSession session){//servlet-api.jar
-		User result = userServiceImpl.getUser(session);
+		Staff result = userServiceImpl.getStaff(session);
 		if(logger.isDebugEnabled()){
-			logger.debug("getUser="+result);
+			logger.debug("getStaff="+result);
 		}
 		return result;
 	}

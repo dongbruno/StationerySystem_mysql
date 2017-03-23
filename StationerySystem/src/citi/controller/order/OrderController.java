@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import citi.entity.Order;
+import citi.hibernate.entity.Orders;
 import citi.service.order.OrderService;
 @Controller
 public class OrderController {
@@ -30,7 +30,7 @@ public class OrderController {
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getOrders(){
-		List<Order> result = orderServiceImpl.getOrders();
+		List<Orders> result = orderServiceImpl.getOrders();
 		if(logger.isDebugEnabled()){
 			logger.debug("getOrders="+result);
 		}

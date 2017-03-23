@@ -1,25 +1,24 @@
-package citi.controller.Admin;
+package citi.controller.admin;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.h2.store.fs.FileUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import citi.controller.stationery.StationeryController;
 import citi.service.admin.AdminService;
 
 @Controller
@@ -36,7 +35,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/download/{dlType}/{location}", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<byte[]> download(@PathVariable String dlType, String location){
+	public ResponseEntity<byte[]> download(@PathVariable String dlType, String location) throws IOException{
 		File file = adminService.downloadFile(dlType, location);
 		String fileName = file.getName();
 		HttpHeaders headers = new HttpHeaders();

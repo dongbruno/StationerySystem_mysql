@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="citi.hibernate.entity.Orders" table="orders" catalog="ssdb" optimistic-lock="version">
+        <id name="orderId" type="int">
+            <column name="order_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="staff" class="citi.hibernate.entity.Staff" fetch="select">
+            <column name="soeId" length="10" />
+        </many-to-one>
+        <many-to-one name="stationery" class="citi.hibernate.entity.Stationery" fetch="select">
+            <column name="stationery_id" />
+        </many-to-one>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

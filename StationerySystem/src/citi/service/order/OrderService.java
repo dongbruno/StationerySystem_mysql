@@ -2,11 +2,12 @@ package citi.service.order;
 
 import java.util.List;
 
-import citi.entity.Order;
+import citi.hibernate.entity.Orders;
+
 
 public interface OrderService {
 
-	List<Order> getOrders();
+	List<Orders> getOrders();
 
 	String saveOrders();
 

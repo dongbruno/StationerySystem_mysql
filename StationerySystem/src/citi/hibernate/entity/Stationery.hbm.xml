@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-23 13:03:30 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="citi.hibernate.entity.Stationery" table="stationery" catalog="ssdb" optimistic-lock="version">
+        <id name="stationeryId" type="int">
+            <column name="stationery_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="kind" type="string">
+            <column name="kind" length="15" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="30" not-null="true" />
+        </property>
+        <property name="standard" type="string">
+            <column name="standard" length="6" not-null="true" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="price" precision="8" not-null="true" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stationery_id" />
+            </key>
+            <one-to-many class="citi.hibernate.entity.Orders" />
+        </set>
+    </class>
+</hibernate-mapping>
