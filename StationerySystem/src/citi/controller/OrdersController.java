@@ -25,7 +25,7 @@ import citi.service.OrdersService;
 public class OrdersController {
 	private static final Log logger = LogFactory.getLog(OrdersController.class);
 	
-	@Resource(name = "OrdersServiceImpl")
+	@Resource
 	OrdersService ordersServiceImpl;
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody

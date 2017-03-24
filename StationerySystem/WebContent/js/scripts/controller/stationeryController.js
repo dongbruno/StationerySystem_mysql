@@ -6,20 +6,22 @@ define(['app'], function(app){
 		$scope.$root.cartStationery = $scope.$root.cartStationery || [];
 		$scope.addToCart = function(newItem){
 			var isContained = $scope.$root.cartStationery.some(function(item, key){
-				if(item.id == newItem.id){
-					$scope.$root.cartStationery[key].quantity += 1;
+				if(item.stationeryId == newItem.stationeryId){
+					$scope.$root.cartStationery[key].quantity = $scope.$root.cartStationery[key].quantity || 1;
+					$scope.$root.cartStationery[key].quantity = $scope.$root.cartStationery[key].quantity + 1;
 					$scope.$root.number += 1;
 					return true;
 				}
 				
 			});
 			if(!isContained){
+				newItem.quantity = 1;
 				$scope.$root.cartStationery.push(newItem);
 				$scope.$root.number += 1;
 				
 			}
 		}
-		 $http.get("getUser", {
+		 $http.get("getStaff", {
 			 "Accept": "application/json;charset=utf-8",
 			 "Accept-Charset": "charset=utf-8",
 			 "Content-Type": "application/x-www-form-urlencoded;charset-utf-8"

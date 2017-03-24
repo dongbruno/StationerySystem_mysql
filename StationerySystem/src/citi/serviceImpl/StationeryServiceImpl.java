@@ -4,19 +4,24 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import citi.hibernate.dao.StationeryDao;
-import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
 import citi.service.StationeryService;
 
+@Service
 public class StationeryServiceImpl implements StationeryService {
 	@Resource(name="stationeryDaoImpl")
 	StationeryDao stationeryDaoImpl;
 	@Override
-	public List<Orders> getStationery() {
+	public List<Stationery> getStationery() {
 		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil.openSession();
+		List<Stationery> result = stationeryDaoImpl.getStationery();
+    	HibernateUtil.closeSession();
+		return result;
 	}
 
 	@Override

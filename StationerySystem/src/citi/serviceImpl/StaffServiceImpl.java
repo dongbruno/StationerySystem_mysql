@@ -2,9 +2,11 @@ package citi.serviceImpl;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
+
 import citi.hibernate.entity.Staff;
 import citi.service.StaffService;
-
+@Service
 public class StaffServiceImpl implements StaffService {
 
 	@Override

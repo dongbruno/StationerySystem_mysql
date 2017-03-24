@@ -5,7 +5,7 @@
   </listener>
   <context-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/xml/applicationContext.xml</param-value>
+            <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
 <listener>
 <listener-class>
@@ -31,7 +31,7 @@ org.springframework.web.filter.CharacterEncodingFilter
 <url-pattern>/*</url-pattern>
 </filter-mapping>
 
-<!-- <servlet>
+<servlet>
 <servlet-name>StationerySystem</servlet-name>
 <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 <init-param>
@@ -43,7 +43,7 @@ org.springframework.web.filter.CharacterEncodingFilter
 <servlet-mapping>
 <servlet-name>StationerySystem</servlet-name>
 <url-pattern>/</url-pattern>
-</servlet-mapping> -->
+</servlet-mapping> 
 
 
 <welcome-file-list>

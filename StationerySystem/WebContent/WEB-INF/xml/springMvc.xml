@@ -18,7 +18,7 @@
 		</property>
 	</bean>
 	<context:annotation-config />
-	<context:component-scan base-package="citi.**" />
+	<context:component-scan base-package="citi.controller" />
 	<!-- 静态资源 -->
 	<mvc:resources mapping="/style/**" location="/style/" />
 	<mvc:resources mapping="/js/**" location="/js/" />

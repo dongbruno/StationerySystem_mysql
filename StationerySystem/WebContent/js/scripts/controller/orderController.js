@@ -42,12 +42,12 @@ define(['app'], function(app){
 		$scope.saveOrder = function(){
 			var order = "";
 			$scope.orderStationery.some(function(item, key){
-				order += item.id+":"+item.quantity+"_";
+				order += item.stationeryId+":"+item.quantity+"_";
 			});
 			
 			$http({
 				method: 'POST',
-				url: 'saveOrder',
+				url: 'saveOrders',
 				data: {
 					'order': order
 				},
@@ -83,7 +83,7 @@ define(['app'], function(app){
 			$scope.orderStationery[index].quantity++;
 		}
 		
-		$http.get("getOrder",{
+		$http.get("getOrders",{
 			"Accept": "application/json;charset=utf-8",
 			"Accept-Charset": "charset=utf-8"
 		}).then(function(response){

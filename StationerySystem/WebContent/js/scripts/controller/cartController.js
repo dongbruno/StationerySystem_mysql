@@ -49,12 +49,12 @@ define(['app'], function(app){
 		$scope.submit = function(){
 			var order = "";
 			$scope.cartStationery.some(function(item, key){
-				order += item.id+":"+item.quantity+"_";
+				order += item.stationeryId+":"+item.quantity+"_";
 			});
 			
 			$http({
 				method: 'POST',
-				url: 'submitOrder',
+				url: 'submitOrders',
 				data: {
 					'order': order
 				},

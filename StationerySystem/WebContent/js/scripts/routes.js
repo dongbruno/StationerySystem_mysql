@@ -11,7 +11,7 @@
             'show.stationery': {
                 templateUrl: 'views/show-stationery.html',
                 url: '/stationery',
-                dependencies: ['controller/stationeryController'],
+                dependencies: ['controller/stationeryController', 'filter/shortNameFilter'],
                 allowAnonymous: true
             },
             'show.order': {
@@ -29,7 +29,7 @@
             'show.cart':{
             	 templateUrl: 'views/show-cart.html',
                  url: '/cart',
-                 dependencies: ['controller/cartController'],
+                 dependencies: ['controller/cartController', 'filter/shortNameFilter'],
                  allowAnonymous: true
             }
             

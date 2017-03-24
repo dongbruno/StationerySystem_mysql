@@ -2,9 +2,11 @@ package citi.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import citi.hibernate.entity.Orders;
 import citi.service.OrdersService;
-
+@Service
 public class OrdersServiceImpl implements OrdersService {
 
 	@Override

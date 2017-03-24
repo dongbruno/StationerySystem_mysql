@@ -10,7 +10,7 @@ public interface StationeryService {
 
 	int insertStationery(Stationery stationery);
 	
-	List<Orders> getStationery();
+	List<Stationery> getStationery();
 
 
 }

@@ -1,7 +1,9 @@
 package citi.hibernate.daoImpl;
 
-import citi.hibernate.dao.AdminDao;
+import org.springframework.stereotype.Repository;
 
+import citi.hibernate.dao.AdminDao;
+@Repository
 public class AdminDaoImpl implements AdminDao {
 
 	@Override

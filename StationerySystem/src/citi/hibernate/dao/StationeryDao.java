@@ -8,6 +8,6 @@ public interface StationeryDao {
 	
 	int insertStationery(Stationery stationery);
 	
-	List<Orders> getStationery();
+	List<Stationery> getStationery();
 	
 }

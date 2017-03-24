@@ -2,9 +2,11 @@ package citi.hibernate.daoImpl;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Repository;
+
 import citi.hibernate.dao.StaffDao;
 import citi.hibernate.entity.Staff;
-
+@Repository
 public class StaffDaoImpl implements StaffDao {
 
 	@Override

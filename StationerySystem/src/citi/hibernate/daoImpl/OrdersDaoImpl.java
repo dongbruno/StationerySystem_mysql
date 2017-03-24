@@ -2,9 +2,11 @@ package citi.hibernate.daoImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import citi.hibernate.dao.OrdersDao;
 import citi.hibernate.entity.Orders;
-
+@Repository
 public class OrdersDaoImpl implements OrdersDao {
 
 	@Override

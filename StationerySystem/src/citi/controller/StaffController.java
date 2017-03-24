@@ -16,7 +16,7 @@ import citi.service.StaffService;
 public class StaffController {
 private static final Log logger = LogFactory.getLog(StaffController.class);
 	
-	@Resource(name = "staffServiceImpl")
+	@Resource
 	StaffService staffServiceImpl;
 	
 	@RequestMapping(value = "/getStaff", method = RequestMethod.GET)

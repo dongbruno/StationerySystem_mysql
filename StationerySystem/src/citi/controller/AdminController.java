@@ -24,19 +24,19 @@ import citi.service.AdminService;
 @Controller
 public class AdminController {
 	private static final Log logger = LogFactory.getLog( AdminController.class);
-	@Resource(name="adminServiceImpl")
-	AdminService adminService;
+	@Resource
+	AdminService adminServiceImpl;
 	@RequestMapping(value = "/setDeadline", method = RequestMethod.GET)
 	@ResponseBody
 	public String setDeadline(@RequestParam String deadline){
 		
-		return adminService.setDeadline(deadline);
+		return adminServiceImpl.setDeadline(deadline);
 	}
 	
 	@RequestMapping(value = "/download/{dlType}/{location}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<byte[]> download(@PathVariable String dlType, String location) throws IOException{
-		File file = adminService.downloadFile(dlType, location);
+		File file = adminServiceImpl.downloadFile(dlType, location);
 		String fileName = file.getName();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentDispositionFormData("attachment", fileName);
@@ -49,7 +49,7 @@ public class AdminController {
 	@RequestMapping(value = "/setNote", method = RequestMethod.GET)
 	@ResponseBody
 	public String setNote(@RequestParam String note){
-		return adminService.setNote(note);
+		return adminServiceImpl.setNote(note);
 	}
 
 }

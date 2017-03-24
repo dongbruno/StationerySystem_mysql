@@ -12,7 +12,7 @@ import citi.hibernate.dao.StationeryDao;
 import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
-@Repository("stationeryDaoImpl")
+@Repository
 public class StationeryDaoImpl implements StationeryDao {
 	private static final Log logger = LogFactory.getLog(StationeryDaoImpl.class);
 	
@@ -26,9 +26,13 @@ public class StationeryDaoImpl implements StationeryDao {
 	}
 
 	@Override
-	public List<Orders> getStationery() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Stationery> getStationery() {
+			Session session = HibernateUtil.getSession();
+			session.beginTransaction();
+			List<Stationery> result = session.createQuery("from Stationery").list();
+			session.getTransaction().commit();
+			return result;
+		
 	}
 
 }
