@@ -1,4 +1,4 @@
-package citi.service.stationery;
+package citi.service;
 
 import java.util.List;
 

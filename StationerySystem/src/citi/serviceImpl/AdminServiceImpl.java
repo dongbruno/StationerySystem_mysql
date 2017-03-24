@@ -1,8 +1,10 @@
-package citi.service.admin;
+package citi.serviceImpl;
 
 import java.io.File;
 
 import org.springframework.stereotype.Service;
+
+import citi.service.AdminService;
 @Service
 public class AdminServiceImpl implements AdminService {
 

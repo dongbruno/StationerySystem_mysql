@@ -1,4 +1,4 @@
-package citi.service.orders;
+package citi.service;
 
 import java.util.List;
 

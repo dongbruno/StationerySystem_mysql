@@ -1,4 +1,4 @@
-package citi.controller.stationery;
+package citi.controller;
 
 import org.springframework.stereotype.Controller;
 
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.hibernate.entity.Orders;
-import citi.service.orders.OrdersService;
-import citi.service.stationery.StationeryService;
+import citi.service.OrdersService;
+import citi.service.StationeryService;
 @Controller
 public class StationeryController {
 	private static final Log logger = LogFactory.getLog(StationeryController.class);
