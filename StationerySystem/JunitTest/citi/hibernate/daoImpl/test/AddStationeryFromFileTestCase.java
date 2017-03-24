@@ -39,7 +39,7 @@ public class AddStationeryFromFileTestCase {
                 	System.out.println(new BigDecimal(arr[3]));
                 	Stationery sta = new Stationery(arr[0], arr[1], arr[2], new BigDecimal(arr[3]));
                 	HibernateUtil.openSession();
-                	stationeryDaoImpl.addStationery(sta);
+                	stationeryDaoImpl.insertStationery(sta);
                 	HibernateUtil.closeSession();
                 }
                 read.close();

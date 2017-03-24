@@ -1,12 +1,15 @@
 package citi.hibernate.daoImpl;
 
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import citi.hibernate.dao.StationeryDao;
+import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
 @Repository("stationeryDaoImpl")
@@ -20,6 +23,12 @@ public class StationeryDaoImpl implements StationeryDao {
 		session.save(stationery);
 		session.getTransaction().commit();
 		return stationery.getStationeryId();
+	}
+
+	@Override
+	public List<Orders> getStationery() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

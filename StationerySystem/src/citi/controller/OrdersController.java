@@ -25,12 +25,12 @@ import citi.service.OrdersService;
 public class OrdersController {
 	private static final Log logger = LogFactory.getLog(OrdersController.class);
 	
-	@Resource(name = "OrderServiceImpl")
-	OrdersService orderServiceImpl;
+	@Resource(name = "OrdersServiceImpl")
+	OrdersService ordersServiceImpl;
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getOrders(){
-		List<Orders> result = orderServiceImpl.getOrders();
+		List<Orders> result = ordersServiceImpl.getOrders();
 		if(logger.isDebugEnabled()){
 			logger.debug("getOrders="+result);
 		}
@@ -40,7 +40,7 @@ public class OrdersController {
 	@RequestMapping(value = "/saveOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public String saveOrders(){
-		String result = orderServiceImpl.saveOrders();
+		String result = ordersServiceImpl.saveOrders();
 		if(logger.isDebugEnabled()){
 			logger.debug("saveOrders="+result);
 		}
@@ -49,7 +49,7 @@ public class OrdersController {
 	@RequestMapping(value = "/submitOrders", method = RequestMethod.GET)
 	@ResponseBody
 	public String submitOrders(){
-		String result = orderServiceImpl.submitOrders();
+		String result = ordersServiceImpl.submitOrders();
 		if(logger.isDebugEnabled()){
 			logger.debug("submitOrders="+result);
 		}

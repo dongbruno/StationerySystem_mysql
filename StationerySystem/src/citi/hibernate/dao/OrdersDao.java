@@ -1,5 +1,13 @@
 package citi.hibernate.dao;
 
-public interface OrdersDao {
+import java.util.List;
 
+import citi.hibernate.entity.Orders;
+
+public interface OrdersDao {
+	List<Orders> getOrders();
+
+	String saveOrders();
+
+	String submitOrders();
 }
