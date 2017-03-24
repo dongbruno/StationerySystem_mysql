@@ -5,5 +5,4 @@ public interface StationeryDao {
 	
 	public int addStationery(Stationery stationery);
 	
-	
 }

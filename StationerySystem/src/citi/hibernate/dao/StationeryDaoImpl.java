@@ -5,10 +5,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-
 import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
-@Repository
+@Repository("stationeryDaoImpl")
 public class StationeryDaoImpl implements StationeryDao {
 	private static final Log logger = LogFactory.getLog(StationeryDaoImpl.class);
 	
