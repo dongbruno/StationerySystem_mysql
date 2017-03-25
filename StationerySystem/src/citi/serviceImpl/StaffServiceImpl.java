@@ -12,7 +12,10 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public Staff getStaff(HttpSession session) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Staff staff = (Staff) session.getAttribute("staff");
+		
+		return staff;
 	}
 
 	@Override

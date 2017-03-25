@@ -1,7 +1,7 @@
 define(['app'], function(app){
 	app.controller('stationeryCtrl', function($scope, $http){
 		$scope.stationery = [];
-		$scope.user = {};
+		$scope.$root.user = {};
 		$scope.$root.number = $scope.$root.number || 0;
 		$scope.$root.cartStationery = $scope.$root.cartStationery || [];
 		$scope.addToCart = function(newItem){
@@ -23,16 +23,15 @@ define(['app'], function(app){
 		}
 		 $http.get("getStaff", {
 			 "Accept": "application/json;charset=utf-8",
-			 "Accept-Charset": "charset=utf-8",
-			 "Content-Type": "application/x-www-form-urlencoded;charset-utf-8"
+			 "Accept-Charset": "charset=utf-8"
 		 }).then(function(response){
-			 $scope.user = response.data;
+			 $scope.$root.user = response.data;
 		 }, function(err){
 			 console.log(err);
 		 });
 		 $http.get("getStationery", {
 			 "Accept": "application/json;charset=utf-8",
-			 "Accept-Charset": "charset=utf-8",
+			 "Accept-Charset": "charset=utf-8"
 		 }).then(function(response){
 			 $scope.stationery = response.data;
 		 }, function(err){

@@ -6,13 +6,14 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.hibernate.entity.Staff;
 import citi.service.StaffService;
-
+@Controller
 public class StaffController {
 private static final Log logger = LogFactory.getLog(StaffController.class);
 	
