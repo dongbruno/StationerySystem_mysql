@@ -41,7 +41,7 @@ define(['app'], function(app){
 		}
 		$scope.removeAll = function(){
 			var index;
-			for(index = $scope.cartStationery.length - 1; index > 0; index--){
+			for(index = $scope.cartStationery.length - 1; index >=0; index--){
 				$scope.remove(index);
 			}
 		}
@@ -58,9 +58,7 @@ define(['app'], function(app){
 			$http({
 				method: 'POST',
 				url: 'submitOrders',
-				data: {
-					'order': json_order
-				},
+				data: JSON.stringify(json_order),
 				headers: {
 					'Content-Type': 'application/json'
 				}

@@ -11,10 +11,9 @@ import citi.hibernate.entity.Orders;
 
 public interface OrdersService {
 
-	List<Orders> getOrders();
+	List<Object> getOrders(HttpSession session);
 
-	String saveOrders(JsonArray orderJsonArray);
+	boolean submitOrders(JsonArray orderJsonArray, HttpSession session);
 
-	String submitOrders(JsonArray orderJsonArray, HttpSession session);
-
+	boolean saveOrders(JsonArray orderJsonArray, HttpSession session);
 }

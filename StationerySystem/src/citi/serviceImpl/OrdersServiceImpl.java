@@ -17,20 +17,31 @@ public class OrdersServiceImpl implements OrdersService {
 @Resource
 OrdersDao ordersDaoImpl;
 	@Override
-	public List<Orders> getOrders() {
+	public List<Object> getOrders(HttpSession session) {
 		// TODO Auto-generated method stub
-		return null;
+		 HibernateUtil.openSession();
+		 List<Object> orders = ordersDaoImpl.getOrders(session);
+         HibernateUtil.closeSession();
+         return orders;
 	}
 
 
 	@Override
-	public String saveOrders(JsonArray orderJsonArray) {
+	public boolean saveOrders(JsonArray orderJsonArray, HttpSession session) {
 		// TODO Auto-generated method stub
-		return null;
+		 for(int i=0;i<orderJsonArray.size();i++){
+             JsonObject subObject=orderJsonArray.get(i).getAsJsonObject();
+             int stationeryId=subObject.get("stationeryId").getAsInt();
+             int quantity=subObject.get("quantity").getAsInt();
+             HibernateUtil.openSession();
+             ordersDaoImpl.saveOrders(stationeryId, quantity, session);
+             HibernateUtil.closeSession();
+         }
+		return true;
 	}
 
 	@Override
-	public String submitOrders(JsonArray orderJsonArray, HttpSession session) {
+	public boolean submitOrders(JsonArray orderJsonArray, HttpSession session) {
 		// TODO Auto-generated method stub
 		 for(int i=0;i<orderJsonArray.size();i++){
              JsonObject subObject=orderJsonArray.get(i).getAsJsonObject();
@@ -40,7 +51,7 @@ OrdersDao ordersDaoImpl;
              ordersDaoImpl.submitOrders(stationeryId, quantity, session);
              HibernateUtil.closeSession();
          }
-		return null;
+		return true;
 	}
 
 }

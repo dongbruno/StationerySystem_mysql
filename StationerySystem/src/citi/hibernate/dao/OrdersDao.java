@@ -7,10 +7,9 @@ import javax.servlet.http.HttpSession;
 import citi.hibernate.entity.Orders;
 
 public interface OrdersDao {
-	List<Orders> getOrders();
+	boolean saveOrders(int stationeryId, int quantity, HttpSession session);
 
-	String saveOrders();
+	boolean submitOrders(int stationeryId, int quantity, HttpSession session);
 
-
-	String submitOrders(int stationeryId, int quantity, HttpSession session);
+	List<Object> getOrders(HttpSession session);
 }

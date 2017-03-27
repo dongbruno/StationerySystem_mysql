@@ -26,7 +26,13 @@ public class Stationery implements java.io.Serializable {
 		this.standard = standard;
 		this.price = price;
 	}
-
+	public Stationery(Integer stationeryId, String kind, String name, String standard, BigDecimal price) {
+		this.stationeryId = stationeryId;
+		this.kind = kind;
+		this.name = name;
+		this.standard = standard;
+		this.price = price;
+	}
 	public Stationery(String kind, String name, String standard, BigDecimal price, Set orderses) {
 		this.kind = kind;
 		this.name = name;

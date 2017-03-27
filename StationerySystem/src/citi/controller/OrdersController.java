@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import citi.hibernate.entity.Orders;
 import citi.service.OrdersService;
@@ -26,8 +27,8 @@ public class OrdersController {
 	OrdersService ordersServiceImpl;
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
-	public Object getOrders(){
-		List<Orders> result = ordersServiceImpl.getOrders();
+	public Object getOrders(HttpSession session){
+		List<Object> result = ordersServiceImpl.getOrders(session);
 		if(logger.isDebugEnabled()){
 			logger.debug("getOrders="+result);
 		}
@@ -36,23 +37,23 @@ public class OrdersController {
 	
 	@RequestMapping(value = "/saveOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String saveOrders(@RequestBody JsonObject orderJson){
+	public String saveOrders(@RequestBody JsonObject orderJson, HttpSession session){
 		JsonArray orderJsonArray=orderJson.get("order").getAsJsonArray();
-		String result = ordersServiceImpl.saveOrders(orderJsonArray);
+		boolean result = ordersServiceImpl.saveOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("saveOrders="+result);
 		}
-		return result;
+		return "success";
 	}
 	@RequestMapping(value = "/submitOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String submitOrders(@RequestBody JsonObject orderJson, HttpSession session){
-		JsonArray orderJsonArray=orderJson.get("order").getAsJsonArray();
-		String result = ordersServiceImpl.submitOrders(orderJsonArray, session);
+	public String submitOrders(@RequestBody String orderJson, HttpSession session){
+		JsonArray orderJsonArray=new JsonParser().parse(orderJson).getAsJsonArray();
+		boolean result = ordersServiceImpl.submitOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("submitOrders="+result);
 		}
-		return result;
+		return "success";
 	}
 	
 

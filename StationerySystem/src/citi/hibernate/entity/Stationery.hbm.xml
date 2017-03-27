@@ -20,7 +20,7 @@
         <property name="price" type="big_decimal">
             <column name="price" precision="8" not-null="true" />
         </property>
-        <set name="orderses" table="orders" inverse="true" lazy="false" fetch="select">
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="stationery_id" />
             </key>
