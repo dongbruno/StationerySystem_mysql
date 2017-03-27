@@ -10,4 +10,6 @@ public interface StationeryDao {
 	
 	List<Stationery> getStationery();
 	
+	Stationery findById(Integer id);
+	
 }

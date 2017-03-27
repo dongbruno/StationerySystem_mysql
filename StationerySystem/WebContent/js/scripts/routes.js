@@ -5,7 +5,7 @@
             'show': {
                 templateUrl: 'views/show.html',
                 url: '/show',
-                dependencies: [],
+                dependencies: ['controller/navigationBarController'],
                 allowAnonymous: true
             },
             'show.stationery': {

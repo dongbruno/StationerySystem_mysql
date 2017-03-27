@@ -60,6 +60,9 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.1-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,23 +1,20 @@
 package citi.controller;
-import java.io.File;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.h2.store.fs.FileUtils;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import citi.hibernate.entity.Orders;
 import citi.service.OrdersService;
@@ -37,19 +34,21 @@ public class OrdersController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/saveOrders", method = RequestMethod.GET)
+	@RequestMapping(value = "/saveOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String saveOrders(){
-		String result = ordersServiceImpl.saveOrders();
+	public String saveOrders(@RequestBody JsonObject orderJson){
+		JsonArray orderJsonArray=orderJson.get("order").getAsJsonArray();
+		String result = ordersServiceImpl.saveOrders(orderJsonArray);
 		if(logger.isDebugEnabled()){
 			logger.debug("saveOrders="+result);
 		}
 		return result;
 	}
-	@RequestMapping(value = "/submitOrders", method = RequestMethod.GET)
+	@RequestMapping(value = "/submitOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String submitOrders(){
-		String result = ordersServiceImpl.submitOrders();
+	public String submitOrders(@RequestBody JsonObject orderJson, HttpSession session){
+		JsonArray orderJsonArray=orderJson.get("order").getAsJsonArray();
+		String result = ordersServiceImpl.submitOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("submitOrders="+result);
 		}

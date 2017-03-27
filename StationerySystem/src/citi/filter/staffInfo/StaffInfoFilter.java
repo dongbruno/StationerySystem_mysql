@@ -38,6 +38,7 @@ public class StaffInfoFilter implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest)servletRequest;
 		HttpSession session =  request.getSession();
+		session.setAttribute("soeId", "YD83768");
 		session.setAttribute("staff", new Staff("YD83768", "董永辉", true, "LJZ", "VIII", "muni"));
 		// pass the request along the filter chain
 		chain.doFilter(request, servletResponse);

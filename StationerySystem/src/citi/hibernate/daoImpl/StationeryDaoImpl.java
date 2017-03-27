@@ -14,7 +14,7 @@ import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
 @Repository
 public class StationeryDaoImpl implements StationeryDao {
-	private static final Log logger = LogFactory.getLog(StationeryDaoImpl.class);
+	private static final Log log = LogFactory.getLog(StationeryDaoImpl.class);
 	
 	@Override
 	public int insertStationery(Stationery stationery) {
@@ -33,6 +33,23 @@ public class StationeryDaoImpl implements StationeryDao {
 			session.getTransaction().commit();
 			return result;
 		
+	}
+	
+	public Stationery findById(Integer id) {
+		log.debug("getting Stationery instance with id: " + id);
+		try {
+			Stationery instance = (Stationery) HibernateUtil.getSession()
+					.get("citi.hibernate.entity.Stationery", id);
+			if (instance == null) {
+				log.debug("get successful, no instance found");
+			} else {
+				log.debug("get successful, instance found");
+			}
+			return instance;
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
 	}
 
 }

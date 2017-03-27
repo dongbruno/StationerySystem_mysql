@@ -13,7 +13,7 @@ import citi.service.StationeryService;
 
 @Service
 public class StationeryServiceImpl implements StationeryService {
-	@Resource(name="stationeryDaoImpl")
+	@Resource
 	StationeryDao stationeryDaoImpl;
 	@Override
 	public List<Stationery> getStationery() {

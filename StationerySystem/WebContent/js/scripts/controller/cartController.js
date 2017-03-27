@@ -46,17 +46,20 @@ define(['app'], function(app){
 			}
 		}
 		
+		
+		
 		$scope.submit = function(){
-			var order = "";
+			var json_order = [];
 			$scope.cartStationery.some(function(item, key){
-				order += item.stationeryId+":"+item.quantity+"_";
+				var strTemp = '{"stationeryId":' + item.stationeryId +',"quantity":'+item.quantity+'}';
+				json_order.push(JSON.parse(strTemp));
 			});
 			
 			$http({
 				method: 'POST',
 				url: 'submitOrders',
 				data: {
-					'order': order
+					'order': json_order
 				},
 				headers: {
 					'Content-Type': 'application/json'

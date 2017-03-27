@@ -186,6 +186,18 @@ ul.top-nav li span {
 	display: inline-block;
 	background-size: 100% 100%;
 }
+.top-nav ul li.changeUser {
+	position: relative;
+	top: 25px;
+	display: inline-block;
+	background-size: 100% 100%;
+}
+.top-nav ul li.defaultUser {
+	position: relative;
+	top: 25px;
+	display: inline-block;
+	background-size: 100% 100%;
+}
 .top-nav ul li a.quantity {
 	position: absolute;
 	padding: 0 0 0 8px;
