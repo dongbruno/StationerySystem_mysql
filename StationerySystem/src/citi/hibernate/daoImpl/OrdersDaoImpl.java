@@ -1,5 +1,6 @@
 package citi.hibernate.daoImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import citi.hibernate.dao.OrdersDao;
 import citi.hibernate.dao.StationeryDao;
 import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
 
 @Repository
@@ -19,12 +21,14 @@ public class OrdersDaoImpl implements OrdersDao {
 	StationeryDao stationeryDaoImpl;
 
 	@Override
-	public List<Object> getOrders(HttpSession session) {
+	public List<Orders> getOrders(HttpSession session) {
 		// TODO Auto-generated method stub
-		Session session2 = HibernateUtil.getSession();
+		Session sessionHibernate = HibernateUtil.getSession();
 		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
-		String queryString = "from Orders orders join orders.staff staff where staff.soeId = ?";
-		List<Object> orders = session2.createQuery(queryString).setParameter(0, (Staff) session.getAttribute("soeId")).list();
+		String queryString = "select new Orders(orders.orderId,staff,stationery,orders.quantity,orders.date) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.soeId = ?";
+		String soeId = (String) session.getAttribute("soeId");
+		List<Orders> orders = new ArrayList();
+		orders = sessionHibernate.createQuery(queryString).setParameter(0, soeId).list();
 		return orders;
 	}
 

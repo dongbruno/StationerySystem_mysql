@@ -11,5 +11,5 @@ public interface OrdersDao {
 
 	boolean submitOrders(int stationeryId, int quantity, HttpSession session);
 
-	List<Object> getOrders(HttpSession session);
+	List<Orders> getOrders(HttpSession session);
 }

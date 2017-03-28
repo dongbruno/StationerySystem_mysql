@@ -10,8 +10,8 @@
 		</tr>
 		<tr ng-repeat="item in orderStationery">
 			<th class="stationery-picture"><img
-				ng-src="./style/image/t_SH_{{item.stationeryId}}.jpg" /></th>
-			<td>{{item.name|shortName}}</td>
+				ng-src="./style/image/t_SH_{{item.stationery.stationeryId}}.jpg" /></th>
+			<td>{{item.stationery.name|shortName}}</td>
 			<td>
 				<button type="button" class="btn" ng-disabled="isSaved"
 					ng-click="reduce($index)">-</button> 
@@ -21,8 +21,8 @@
 				<button type="button" class="btn" ng-disabled="isSaved"
 					ng-click="add($index)">+</button>
 			</td>
-			<td>{{item.price|number:2|currency:'￥'}}元/{{item.standard}}</td>
-			<td>{{item.quantity*item.price|number:2|currency:'￥'}}元</td>
+			<td>{{item.stationery.price|number:2|currency:'￥'}}元/{{item.stationery.standard}}</td>
+			<td>{{item.quantity*item.stationery.price|number:2|currency:'￥'}}元</td>
 			<td><button type="button" class="btn btn-danger" ng-disabled="isSaved"
 					ng-click="remove($index)">移除</button></td>
 		</tr>

@@ -21,7 +21,7 @@ define(['app'], function(app){
 				
 			}
 		}
-		 $http.get("getStaff", {
+		$http.get("getStaff", {
 			 "Accept": "application/json;charset=utf-8",
 			 "Accept-Charset": "charset=utf-8"
 		 }).then(function(response){

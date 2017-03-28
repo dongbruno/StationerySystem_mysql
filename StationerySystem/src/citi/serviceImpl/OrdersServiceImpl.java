@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -17,14 +18,13 @@ public class OrdersServiceImpl implements OrdersService {
 @Resource
 OrdersDao ordersDaoImpl;
 	@Override
-	public List<Object> getOrders(HttpSession session) {
+	public List<Orders> getOrders(HttpSession session) {
 		// TODO Auto-generated method stub
 		 HibernateUtil.openSession();
-		 List<Object> orders = ordersDaoImpl.getOrders(session);
+		 List<Orders> orders = ordersDaoImpl.getOrders(session);
          HibernateUtil.closeSession();
          return orders;
 	}
-
 
 	@Override
 	public boolean saveOrders(JsonArray orderJsonArray, HttpSession session) {

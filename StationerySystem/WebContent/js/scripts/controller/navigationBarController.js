@@ -1,6 +1,7 @@
 define(['app'], function(app){
 	app.controller('navigationBarCtrl', function($scope, $http){
 		
+		
 		$scope.defaultUser = function(){
 			$http.get("getStaffTest?isDefault="+true, {
 				 "Accept": "application/json;charset=utf-8",

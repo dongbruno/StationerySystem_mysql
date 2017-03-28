@@ -23,7 +23,7 @@ private static final Log logger = LogFactory.getLog(StaffController.class);
 	
 	@RequestMapping(value = "/getStaff", method = RequestMethod.GET)
 	@ResponseBody
-	public Object getStaff(HttpSession session){//servlet-api.jar
+	public Staff getStaff(HttpSession session){//servlet-api.jar
 		
 		Staff result = staffServiceImpl.getStaff(session);
 		if(logger.isDebugEnabled()){

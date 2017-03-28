@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -27,18 +28,23 @@ public class OrdersController {
 	OrdersService ordersServiceImpl;
 	@RequestMapping(value = "/getOrders", method = RequestMethod.GET)
 	@ResponseBody
-	public Object getOrders(HttpSession session){
-		List<Object> result = ordersServiceImpl.getOrders(session);
+	public List<Orders> getOrders(HttpSession session){
+		List<Orders> result = ordersServiceImpl.getOrders(session);
+		
 		if(logger.isDebugEnabled()){
 			logger.debug("getOrders="+result);
 		}
+//		Gson gson=new Gson();
+//	    String obj=gson.toJson(result);
+//	    System.out.println("orders="+obj);
+	    
 		return result;
 	}
 	
 	@RequestMapping(value = "/saveOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String saveOrders(@RequestBody JsonObject orderJson, HttpSession session){
-		JsonArray orderJsonArray=orderJson.get("order").getAsJsonArray();
+	public String saveOrders(@RequestBody String orderJson, HttpSession session){
+		JsonArray orderJsonArray=new JsonParser().parse(orderJson).getAsJsonArray();
 		boolean result = ordersServiceImpl.saveOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("saveOrders="+result);

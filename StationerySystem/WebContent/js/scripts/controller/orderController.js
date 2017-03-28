@@ -1,12 +1,21 @@
 define(['app'], function(app){
 	app.controller('orderCtrl', function($scope, $http){
 		$scope.orderStationery =[];
-		
+		$http.get("getOrders",{
+			"Accept": "application/json;charset=utf-8",
+			"Accept-Charset": "charset=utf-8"
+		}).then(function(response){
+			$scope.orderStationery = response.data;
+			/*$scope.orderStationery.stationery = response.data.stationery;
+			$scope.orderStationery.staff = response.data.staff;*/
+		}, function(err){
+			console.log(err);
+		});
 		$scope.totalPrice = function(){
 			var total = 0;
 			angular.forEach($scope.orderStationery, function(item){
 				if(item.quantity > 0 && item.quantity !==""){
-					total += item.quantity*item.price;
+					total += item.quantity*item.stationery.price;
 				}
 			});
 			return total;
@@ -14,7 +23,7 @@ define(['app'], function(app){
 		$scope.onblurs = function(quantity){
 			$scope.$root.orderStationery.some(function(item, key){
 				if(item.quantity < 1 || item.quantity ==""){
-					var ans = confirm(item.name + "数量无效，是否移除该文具？");
+					var ans = confirm(item.stationery.name + "数量无效，是否移除该文具？");
 					if(ans){
 						$scope.remove(key);
 					} else{
@@ -39,28 +48,7 @@ define(['app'], function(app){
 			$scope.orderStationery.splice(index, 1);
 		}
 		
-		$scope.saveOrder = function(){
-			var order = "";
-			$scope.orderStationery.some(function(item, key){
-				order += item.stationeryId+":"+item.quantity+"_";
-			});
-			
-			$http({
-				method: 'POST',
-				url: 'saveOrders',
-				data: {
-					'order': order
-				},
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			}).then(function(response){
-				alert(response.data);
-			}, function(err){
-				alert(err);
-			});
-			$scope.modifyOrder();
-		}
+		
 		$scope.isSaved = true;
 		$scope.modifyOrder = function(){
 			$scope.isSaved = !$scope.isSaved;
@@ -82,14 +70,28 @@ define(['app'], function(app){
 		$scope.add = function(index){
 			$scope.orderStationery[index].quantity++;
 		}
-		
-		$http.get("getOrders",{
-			"Accept": "application/json;charset=utf-8",
-			"Accept-Charset": "charset=utf-8"
-		}).then(function(response){
-			$scope.orderStationery = response.data;
-		}, function(err){
-			console.log(err);
-		});
+		$scope.saveOrder = function(){
+			var json_order = [];
+			$scope.orderStationery.some(function(item, key){
+				var strTemp = '{"stationeryId":' + item.stationery.stationeryId +',"quantity":'+item.quantity+'}';
+				json_order.push(JSON.parse(strTemp));
+			});
+			
+			$http({
+				method: 'POST',
+				url: 'saveOrders',
+				data: JSON.stringify(json_order),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}).then(function(response){
+				alert(response.data);
+			}, function(err){
+				alert(err);
+			});
+			
+			$scope.modifyOrder();
+		}
+	
 	});
 });
