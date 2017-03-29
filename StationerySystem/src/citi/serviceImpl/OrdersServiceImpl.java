@@ -53,5 +53,12 @@ OrdersDao ordersDaoImpl;
          }
 		return true;
 	}
-
+	@Override
+	public List selectOrdersInLocation(String location) {
+		// TODO Auto-generated method stub
+		 HibernateUtil.openSession();
+		 List orders = ordersDaoImpl.selectOrdersInLocation(location);
+         HibernateUtil.closeSession();
+         return orders;
+	}
 }

@@ -16,4 +16,6 @@ public interface OrdersService {
 	boolean submitOrders(JsonArray orderJsonArray, HttpSession session);
 
 	boolean saveOrders(JsonArray orderJsonArray, HttpSession session);
+
+	List selectOrdersInLocation(String location);
 }

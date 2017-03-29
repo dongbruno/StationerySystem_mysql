@@ -102,4 +102,14 @@ public class OrdersDaoImpl implements OrdersDao {
 		return true;
 	}
 
+	@Override
+	public List selectOrdersInLocation(String location) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
+		String queryString = "select stationery.kind,stationery.name,stationery.standard,stationery.price,sum(orders.quantity) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ? group by stationery.stationeryId";
+		List orders = sessionHibernate.createQuery(queryString).setParameter(0, location).list();
+		return orders;
+	}
+
 }
