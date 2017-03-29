@@ -34,10 +34,6 @@ public class OrdersController {
 		if(logger.isDebugEnabled()){
 			logger.debug("getOrders="+result);
 		}
-//		Gson gson=new Gson();
-//	    String obj=gson.toJson(result);
-//	    System.out.println("orders="+obj);
-	    
 		return result;
 	}
 	

@@ -35,13 +35,13 @@ public class AdminController {
 	
 	@RequestMapping(value = "/download/{dlType}/{location}", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<byte[]> download(@PathVariable String dlType, String location) throws IOException{
-		File file = adminServiceImpl.downloadFile(dlType, location);
+	public ResponseEntity<byte[]> download(@PathVariable String dlType, @PathVariable String location) throws IOException{
+		String result = adminServiceImpl.downloadFile(dlType, location);
+		File file =new File(result);
 		String fileName = file.getName();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentDispositionFormData("attachment", fileName);
 		headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-		
 		//commons-io-2.0.jar
 		return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.OK);
 		

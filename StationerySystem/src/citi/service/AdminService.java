@@ -6,7 +6,7 @@ public interface AdminService {
 
 	String setDeadline(String deadline);
 
-	File downloadFile(String dlType, String location);
+	String downloadFile(String dlType, String location);
 
 	String setNote(String note);
 	
