@@ -12,5 +12,6 @@
     <context:annotation-config /> 
      <context:component-scan base-package="citi.hibernate.daoImpl" /> 
     <context:component-scan base-package="citi.serviceImpl" />
+    <context:component-scan base-package="citi.export.excel" />
         
 </beans>

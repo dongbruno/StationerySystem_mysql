@@ -27,8 +27,7 @@ public class OrdersDaoImpl implements OrdersDao {
 		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
 		String queryString = "select new Orders(orders.orderId,staff,stationery,orders.quantity,orders.date) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.soeId = ?";
 		String soeId = (String) session.getAttribute("soeId");
-		List<Orders> orders = new ArrayList();
-		orders = sessionHibernate.createQuery(queryString).setParameter(0, soeId).list();
+		List<Orders> orders = sessionHibernate.createQuery(queryString).setParameter(0, soeId).list();
 		return orders;
 	}
 
@@ -109,6 +108,52 @@ public class OrdersDaoImpl implements OrdersDao {
 		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
 		String queryString = "select stationery.kind,stationery.name,stationery.standard,stationery.price,sum(orders.quantity) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ? group by stationery.stationeryId";
 		List orders = sessionHibernate.createQuery(queryString).setParameter(0, location).list();
+		return orders;
+	}
+
+	@Override
+	public List selectOrdersInUnitAndLocation(String location, String unit) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
+		String queryString = "select stationery.kind,stationery.name,stationery.standard,stationery.price,sum(orders.quantity) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ? and staff.unit = ? group by stationery.stationeryId";
+		List orders = sessionHibernate.createQuery(queryString).setParameter(0, location).setParameter(1, unit).list();
+		return orders;
+	}
+
+	@Override
+	public List<String> selectUnitsInLocation(String location) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select distinct staff.unit from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ?";
+		List<String> units = sessionHibernate.createQuery(queryString).setParameter(0, location).list();
+		return units;
+	}
+
+	@Override
+	public List<String> selectTeamsInUnitAndLocation(String location, String unit) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select distinct staff.team from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ? and staff.unit = ?";
+		List<String> teams = sessionHibernate.createQuery(queryString).setParameter(0, location).setParameter(1, unit).list();
+		return teams;
+	}
+
+	@Override
+	public List<String> selectStaffsInTeamAndUnitAndLocation(String location, String unit, String team) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select distinct staff.soeId from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.location = ? and staff.unit = ? and staff.team = ?";
+		List<String> staffs = sessionHibernate.createQuery(queryString).setParameter(0, location).setParameter(1, unit).setParameter(2, team).list();
+		return staffs;
+	}
+
+	@Override
+	public List selectOrdersOfStaffInTeamAndUnitAndLocation(String staff) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select staff.name,staff.soeId,orders.quantity,stationery.standard,stationery.name from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.soeId = ? ";
+		List orders = sessionHibernate.createQuery(queryString).setParameter(0, staff).list();
 		return orders;
 	}
 

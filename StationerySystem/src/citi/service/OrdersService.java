@@ -18,4 +18,14 @@ public interface OrdersService {
 	boolean saveOrders(JsonArray orderJsonArray, HttpSession session);
 
 	List selectOrdersInLocation(String location);
+
+	List<String> selectUnitsInLocation(String location);
+
+	List selectOrdersInUnitAndLocation(String location, String unit);
+
+	List<String> selectTeamsInUnitAndLocation(String location, String unit);
+
+	List<String> selectStaffsInTeamAndUnitAndLocation(String location, String unit, String team);
+
+	List selectOrdersOfStaffInTeamAndUnitAndLocation(String staff);
 }

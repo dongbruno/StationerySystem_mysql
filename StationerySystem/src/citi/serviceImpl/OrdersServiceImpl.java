@@ -61,4 +61,49 @@ OrdersDao ordersDaoImpl;
          HibernateUtil.closeSession();
          return orders;
 	}
+
+	@Override
+	public List<String> selectUnitsInLocation(String location) {
+		// TODO Auto-generated method stub
+		HibernateUtil.openSession();
+		List<String> units = ordersDaoImpl.selectUnitsInLocation(location);
+        HibernateUtil.closeSession();
+        return units;
+	}
+
+	@Override
+	public List selectOrdersInUnitAndLocation(String location, String unit) {
+		// TODO Auto-generated method stub
+		 HibernateUtil.openSession();
+		 List orders = ordersDaoImpl.selectOrdersInUnitAndLocation(location, unit);
+         HibernateUtil.closeSession();
+         return orders;
+	}
+
+	@Override
+	public List<String> selectTeamsInUnitAndLocation(String location, String unit) {
+		// TODO Auto-generated method stub
+		HibernateUtil.openSession();
+		List<String> teams = ordersDaoImpl.selectTeamsInUnitAndLocation(location, unit);
+        HibernateUtil.closeSession();
+        return teams;
+	}
+
+	@Override
+	public List<String> selectStaffsInTeamAndUnitAndLocation(String location, String unit, String team) {
+		// TODO Auto-generated method stub
+		HibernateUtil.openSession();
+		List<String> staffs = ordersDaoImpl.selectStaffsInTeamAndUnitAndLocation(location, unit, team);
+        HibernateUtil.closeSession();
+        return staffs;
+	}
+
+	@Override
+	public List selectOrdersOfStaffInTeamAndUnitAndLocation(String staff) {
+		// TODO Auto-generated method stub
+		 HibernateUtil.openSession();
+		 List orders = ordersDaoImpl.selectOrdersOfStaffInTeamAndUnitAndLocation(staff);
+         HibernateUtil.closeSession();
+         return orders;
+	}
 }
