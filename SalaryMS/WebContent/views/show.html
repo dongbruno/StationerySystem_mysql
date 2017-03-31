@@ -1,21 +1,68 @@
-<div ng-controller="navigationBarCtrl" class="top-header-nav">
-	<nav class="top-nav main-menu">
-		<ul class="top-nav">
-			<li><a ui-sref-active="active" ui-sref="show.stationery">首页</a><span></span></li>
-			<li><a ui-sref-active="active" ui-sref="show.order">订单</a><span></span></li>
-			<li><a ui-sref-active="active" ui-sref="show.adminTools">Adimn工具</a></li>
-			<li class="cart"><a class="quantity" ui-sref-active="active"
-				ui-sref="show.cart">{{$root.number}}</a></li>
-				<li class="welcome">{{$root.user.name}}, 欢迎您！</li>
-				<li class="changeUser"><input type="button" class="" value="切换用户"
-				ng-click="changeUser()"/></li>
-				<li class="defaultUser"><input type="button" class="" value="默认用户"
-				ng-click="defaultUser()"/></li>
-			<div class="clearfix"></div>
-		</ul>
-	</nav>
+<div ng-controller="adminToolsCtrl">
+	<div class="s-stationery-head-left">
+		<h3>
+			<span>下载中心</span>
+		</h3>
+	</div>
 	<div class="clearfix"></div>
-</div>
-<div class="special-stationery">
-	<div class="container" ui-view></div>
+	<br>
+	<table>
+		<tr>
+			<th>类型\地点</th>
+			<th>陆家嘴</th>
+			<th>张江</th>
+			<th>大连</th>
+		</tr>
+		<tr>
+			<th>采购报表</th>
+			<td><input type="button" class="btn-download" value="采购表&陆家嘴"
+				ng-click="download('final_sheet', 'LJZ')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+			<td><input type="button" class="btn-download" value="采购表&张江"
+				ng-click="download('final_sheet', 'ZJ')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+			<td><input type="button" class="btn-download" value="采购表&大连"
+				ng-click="download('final_sheet', 'DL')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+		</tr>
+		<tr>
+			<th>分发报表</th>
+			<td><input type="button" class="btn-download" value="分发表&陆家嘴"
+				ng-click="download('dispatch_detail_ByUnit', 'LJZ')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+			<td><input type="button" class="btn-download" value="分发表&张江"
+				ng-click="download('dispatch_detail_ByUnit', 'ZJ')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+			<td><input type="button" class="btn-download" value="分发表&大连"
+				ng-click="download('dispatch_detail_ByUnit', 'DL')" onmouseover="this.style.backgroundPosition='left -42px'"
+				onmouseout="this.style.backgroundPosition='left top'" /></td>
+		</tr>
+	</table>
+	<br>
+	<div class="s-stationery-head-left">
+		<h3>
+			<span>截止日期</span>
+		</h3>
+	</div>
+	<div class="clearfix"></div>
+	<br>
+	<form name="dateform" ng-submit="setDeadline()">
+		<input type="text" name="date" id="d241"
+			onfocus="WdatePicker({lang:'zh-cn', dateFmt:'yyyy年MM月dd日 HH时mm分ss秒'})"
+			class="Wdate" style="width: 250px" value="" /> <input type="submit"
+			value="设置" />
+	</form>
+	<div class="clearfix"></div>
+	<br>
+	<div class="s-stationery-head-left">
+		<h3>
+			<span>设置公告</span>
+		</h3>
+	</div>
+	<div class="clearfix"></div>
+	<br>
+	<form name="noteform" ng-submit="setNote()">
+		<textarea rows="4" cols="38" name="text"></textarea>
+		<input type="submit" value="发布" />
+	</form>
 </div>

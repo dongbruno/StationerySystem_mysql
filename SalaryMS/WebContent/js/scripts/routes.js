@@ -2,10 +2,10 @@
     return {
         defaultRoute: '/show/stationery',
         routes: {
-            'show': {
-                templateUrl: 'views/show.html',
-                url: '/show',
-                dependencies: ['controller/navigationBarController'],
+            'login': {
+                templateUrl: 'views/login.html',
+                url: '/login',
+                dependencies: ['controller/loginController'],
                 allowAnonymous: true
             },
             'show.stationery': {
