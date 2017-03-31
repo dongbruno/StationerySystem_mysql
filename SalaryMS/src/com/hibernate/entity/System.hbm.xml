@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="citi.hibernate.entity.System" table="system" catalog="ssdb" optimistic-lock="version">
+        <id name="systemId" type="java.lang.Integer">
+            <column name="system_id" />
+            <generator class="identity" />
+        </id>
+        <property name="note" type="string">
+            <column name="note" length="200" />
+        </property>
+        <property name="deadline" type="timestamp">
+            <column name="deadline" length="19" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <property name="operator" type="string">
+            <column name="operator" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
