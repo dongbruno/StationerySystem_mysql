@@ -1,5 +1,5 @@
-// default package
-// Generated 2017-4-3 11:19:10 by Hibernate Tools 5.2.1.Final
+package com.hibernate.entity;
+// Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final
 
 import java.util.Date;
 
