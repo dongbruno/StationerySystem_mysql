@@ -2,8 +2,7 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-catalog="ssdb" match-name="orders"/>
-  <table-filter match-catalog="ssdb" match-name="staff"/>
-  <table-filter match-catalog="ssdb" match-name="stationery"/>
-  <table-filter match-catalog="ssdb" match-name="system"/>
+  <table-filter match-catalog="sms" match-name="admin"/>
+  <table-filter match-catalog="sms" match-name="salary"/>
+  <table-filter match-catalog="sms" match-name="staff"/>
 </hibernate-reverse-engineering>
