@@ -1,15 +1,12 @@
 package citi.service;
 
-import java.io.File;
-
+import javax.servlet.http.HttpSession;
 public interface AdminService {
 
-	String setDeadline(String deadline);
+	String setDeadline(String deadline, HttpSession session);
 
 	String downloadFile(String dlType, String location);
 
-	String setNote(String note);
+	String setNote(String note, HttpSession session);
 	
-	
-
 }

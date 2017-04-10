@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
@@ -28,9 +29,9 @@ public class AdminController {
 	AdminService adminServiceImpl;
 	@RequestMapping(value = "/setDeadline", method = RequestMethod.GET)
 	@ResponseBody
-	public String setDeadline(@RequestParam String deadline){
+	public String setDeadline(@RequestParam String deadline, HttpSession session){
 		
-		return adminServiceImpl.setDeadline(deadline);
+		return adminServiceImpl.setDeadline(deadline, session);
 	}
 	
 	@RequestMapping(value = "/download/{dlType}/{location}", method = RequestMethod.GET)
@@ -48,8 +49,8 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/setNote", method = RequestMethod.GET)
 	@ResponseBody
-	public String setNote(@RequestParam String note){
-		return adminServiceImpl.setNote(note);
+	public String setNote(@RequestParam String note, HttpSession session){
+		return adminServiceImpl.setNote(note, session);
 	}
 
 }

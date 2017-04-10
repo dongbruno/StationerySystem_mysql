@@ -16,6 +16,6 @@
         <mapping resource="citi/hibernate/entity/Orders.hbm.xml" />
         <mapping resource="citi/hibernate/entity/Stationery.hbm.xml" />
         <mapping resource="citi/hibernate/entity/Staff.hbm.xml" />
-        <mapping resource="citi/hibernate/entity/System.hbm.xml" />
+        <mapping resource="citi/hibernate/entity/SystemInfo.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

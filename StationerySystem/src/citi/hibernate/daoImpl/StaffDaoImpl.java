@@ -11,6 +11,7 @@ import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Repository;
 
 import citi.hibernate.dao.StaffDao;
+import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
 import citi.hibernate.util.HibernateUtil;
 import citi.serviceImpl.StaffServiceImpl;
@@ -26,13 +27,19 @@ public class StaffDaoImpl implements StaffDao {
 	@Override
 	public String getNote() {
 		// TODO Auto-generated method stub
-		return null;
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select s.note from SystemInfo s where s.system_id = ?";
+		String note = (String) sessionHibernate.createQuery(queryString).setParameter(0, 1).uniqueResult();;
+		return note;
 	}
 
 	@Override
 	public String getDeadline() {
 		// TODO Auto-generated method stub
-		return null;
+		Session sessionHibernate = HibernateUtil.getSession();
+		String queryString = "select s.deadline from SystemInfo s where s.system_id = ?";
+		String deadline = (String) sessionHibernate.createQuery(queryString).setParameter(0, 1).uniqueResult();;
+		return deadline;
 	}
 
 	@Override

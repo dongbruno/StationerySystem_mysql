@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 import citi.hibernate.dao.StaffDao;
+import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
 import citi.hibernate.util.HibernateUtil;
 import citi.service.StaffService;
@@ -49,13 +51,19 @@ StaffDao staffDaoImpl;
 	@Override
 	public String getNote() {
 		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil.openSession();
+		String note = staffDaoImpl.getNote();
+        HibernateUtil.closeSession();
+        return note;
 	}
 
 	@Override
 	public String getDeadline() {
 		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil.openSession();
+		String deadline = staffDaoImpl.getDeadline();
+        HibernateUtil.closeSession();
+        return deadline;
 	}
 
 	private Staff generateStaff() {
