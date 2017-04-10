@@ -1,6 +1,5 @@
 package citi.hibernate.daoImpl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
@@ -12,7 +11,6 @@ import citi.hibernate.dao.OrdersDao;
 import citi.hibernate.dao.StationeryDao;
 import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
-import citi.hibernate.entity.Stationery;
 import citi.hibernate.util.HibernateUtil;
 
 @Repository

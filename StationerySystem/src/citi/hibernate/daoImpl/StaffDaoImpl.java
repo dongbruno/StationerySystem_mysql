@@ -1,5 +1,7 @@
 package citi.hibernate.daoImpl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import citi.hibernate.dao.StaffDao;
 import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.SystemInfo;
 import citi.hibernate.util.HibernateUtil;
 import citi.serviceImpl.StaffServiceImpl;
 @Repository
@@ -24,23 +27,20 @@ public class StaffDaoImpl implements StaffDao {
 		return null;
 	}
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		Session sessionHibernate = HibernateUtil.getSession();
-		String queryString = "select s.note from SystemInfo s where s.system_id = ?";
-		String note = (String) sessionHibernate.createQuery(queryString).setParameter(0, 1).uniqueResult();;
-		return note;
-	}
 
 	@Override
-	public String getDeadline() {
+	public SystemInfo getSystemInfo() {
 		// TODO Auto-generated method stub
 		Session sessionHibernate = HibernateUtil.getSession();
-		String queryString = "select s.deadline from SystemInfo s where s.system_id = ?";
-		String deadline = (String) sessionHibernate.createQuery(queryString).setParameter(0, 1).uniqueResult();;
-		return deadline;
+		String queryString = "from SystemInfo s where s.systemId = ?";
+		SystemInfo systemInfo = (SystemInfo) sessionHibernate.createQuery(queryString).setParameter(0, 1).uniqueResult();
+		return systemInfo;
 	}
+
+	/*private String toStringFromDate(Date date) {
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+		return myFormat.format(date);
+	}*/
 
 	@Override
 	public boolean insertStaff(Staff staff) {

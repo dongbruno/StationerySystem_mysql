@@ -1,4 +1,5 @@
 <div ng-controller="orderCtrl">
+ <div class="col-md-8 column">
 	<table>
 		<tr>
 			<th>文具图片</th>
@@ -39,4 +40,14 @@
 			</td>
 		</tr>
 	</table>
+	</div>
+	<div class="col-md-4 column" ng-show="!isNoteHide">
+			<div class="alert alert-dismissable alert-success">
+				 <button type="button" ng-click="hideNote()" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					提醒!
+				</h4> 
+				{{$root.systemInfo.note}}
+			</div>
+		</div>
 </div>

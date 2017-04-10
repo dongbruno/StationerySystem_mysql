@@ -1,8 +1,8 @@
 define(['app'], function(app){
 	app.controller('stationeryCtrl', function($scope, $http){
 		$scope.stationery = [];
-		$scope.$root.user = {};
-		$scope.$root.number = $scope.$root.number || 0;
+		
+		
 		$scope.$root.cartStationery = $scope.$root.cartStationery || [];
 		$scope.addToCart = function(newItem){
 			var isContained = $scope.$root.cartStationery.some(function(item, key){
@@ -21,14 +21,6 @@ define(['app'], function(app){
 				
 			}
 		}
-		$http.get("getStaff", {
-			 "Accept": "application/json;charset=utf-8",
-			 "Accept-Charset": "charset=utf-8"
-		 }).then(function(response){
-			 $scope.$root.user = response.data;
-		 }, function(err){
-			 console.log(err);
-		 });
 		 $http.get("getStationery", {
 			 "Accept": "application/json;charset=utf-8",
 			 "Accept-Charset": "charset=utf-8"
@@ -36,7 +28,8 @@ define(['app'], function(app){
 			 $scope.stationery = response.data;
 		 }, function(err){
 			 console.log(err);
-		 })
+		 });
+		 
 		
 	});
 });

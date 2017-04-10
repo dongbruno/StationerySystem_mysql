@@ -3,6 +3,7 @@ package citi.service;
 import javax.servlet.http.HttpSession;
 
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.SystemInfo;
 
 
 public interface StaffService {
@@ -11,9 +12,7 @@ public interface StaffService {
 
 	boolean insertStaff(Staff staff);
 	
-	String getNote();
-	
-	String getDeadline();
+	SystemInfo getSystemInfo();
 	
 	boolean isExpired();
 

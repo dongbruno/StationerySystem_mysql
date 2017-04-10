@@ -92,6 +92,11 @@ define(['app'], function(app){
 			
 			$scope.modifyOrder();
 		}
+		
+		$scope.$root.isNoteHide = $scope.$root.isNoteHide || false;
+		$scope.hideNote = function(){
+			$scope.$root.isNoteHide = true;
+		}
 	
 	});
 });

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import citi.hibernate.dao.StaffDao;
 import citi.hibernate.entity.Orders;
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.SystemInfo;
 import citi.hibernate.util.HibernateUtil;
 import citi.service.StaffService;
 @Service
@@ -48,22 +49,14 @@ StaffDao staffDaoImpl;
 		return staff;
 	}
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		HibernateUtil.openSession();
-		String note = staffDaoImpl.getNote();
-        HibernateUtil.closeSession();
-        return note;
-	}
 
 	@Override
-	public String getDeadline() {
+	public SystemInfo getSystemInfo() {
 		// TODO Auto-generated method stub
 		HibernateUtil.openSession();
-		String deadline = staffDaoImpl.getDeadline();
+		SystemInfo systemInfo = staffDaoImpl.getSystemInfo();
         HibernateUtil.closeSession();
-        return deadline;
+        return systemInfo;
 	}
 
 	private Staff generateStaff() {

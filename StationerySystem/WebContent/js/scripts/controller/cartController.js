@@ -85,5 +85,9 @@ define(['app'], function(app){
 		$scope.add = function(index){
 			$scope.cartStationery[index].quantity++;
 		}
+		$scope.$root.isNoteHide = $scope.$root.isNoteHide || false;
+		$scope.hideNote = function(){
+			$scope.$root.isNoteHide = true;
+		}
 	})
 })

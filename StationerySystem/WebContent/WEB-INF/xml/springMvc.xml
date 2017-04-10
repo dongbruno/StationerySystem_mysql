@@ -5,7 +5,7 @@
 	default-lazy-init="false">
 	<mvc:annotation-driven />
 	
-	<bean
+<!-- 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
@@ -17,7 +17,7 @@
 				</bean>
 			</list>
 		</property>
-	</bean> 
+	</bean>  -->
 	<context:annotation-config />
 	<context:component-scan base-package="citi.controller" />
 	<context:component-scan base-package="citi.hibernate.entity" />

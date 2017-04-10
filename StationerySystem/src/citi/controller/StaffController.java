@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.SystemInfo;
 import citi.service.StaffService;
 @Controller
 public class StaffController {
@@ -42,24 +45,14 @@ private static final Log logger = LogFactory.getLog(StaffController.class);
 		return result;
 	}
 	
-	@RequestMapping(value = "/getDeadline", method = RequestMethod.GET)
+	@RequestMapping(value = "/getSystemInfo", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getDeadline(){
-		String result = staffServiceImpl.getDeadline();
+		SystemInfo result = staffServiceImpl.getSystemInfo();
 		if(logger.isDebugEnabled()){
-			logger.debug("getDeadline="+result);
+			logger.debug("getSystemInfo="+result);
 		}
 		return result;
 	}
 	
-	@RequestMapping(value = "/getNote", method = RequestMethod.GET)
-	@ResponseBody
-	public Object getNote(){
-		String result = staffServiceImpl.getNote();
-		if(logger.isDebugEnabled()){
-			logger.debug("getNote="+result);
-		}
-		return result;
-	}
-
 }

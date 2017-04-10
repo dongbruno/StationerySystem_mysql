@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import citi.hibernate.entity.Staff;
+import citi.hibernate.entity.SystemInfo;
 
 public interface StaffDao {
 	Staff getStaff(HttpSession session);
@@ -13,7 +14,5 @@ public interface StaffDao {
 	
 	List findByExample(Staff instance);
 	
-	String getNote();
-	
-	String getDeadline();
+	SystemInfo getSystemInfo();
 }

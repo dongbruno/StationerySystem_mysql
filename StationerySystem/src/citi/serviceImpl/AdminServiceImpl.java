@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService {
 	public String setNote(String note, HttpSession session) {
 		// TODO Auto-generated method stub
 		 HibernateUtil.openSession();
-		 String result = adminDaoImpl.setDeadline(note, (String) session.getAttribute("soeId"));
+		 String result = adminDaoImpl.setNote(note, (String) session.getAttribute("soeId"));
          HibernateUtil.closeSession();
 		 return result;
 	}
