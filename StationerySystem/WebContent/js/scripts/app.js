@@ -1,7 +1,7 @@
 define([ 'routes', 'loader', 'angularAMD', 'wdatePicker', 'ui-bootstrap',
-		'angular-sanitize', 'blockUI', 'ui.route' ], function(config, loader,
+		'angular-sanitize', 'blockUI', 'ui.route'], function(config, loader,
 		angularAMD, wdatePicker) {
-	var app = angular.module("webapp", [  'ngSanitize',
+	var app = angular.module("webapp", [ 'ngSanitize',
 			'ui.bootstrap', 'ui.router' ]);
 
 	app.config(function($stateProvider, $urlRouterProvider) {

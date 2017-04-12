@@ -5,5 +5,5 @@
   <table-filter match-catalog="ssdb" match-name="orders"/>
   <table-filter match-catalog="ssdb" match-name="staff"/>
   <table-filter match-catalog="ssdb" match-name="stationery"/>
-  <table-filter match-catalog="ssdb" match-name="systemInfo"/>
+  <table-filter match-catalog="ssdb" match-name="systeminfo"/>
 </hibernate-reverse-engineering>

@@ -375,12 +375,19 @@ nav a#pull {
 
 .top-header-search-box {
 	position: absolute;
-	right: 520px;
-	top: 110px;
+	right: 850px;
+	top: 117px;
 	width: 213px;
 	z-index: 999;
 }
-
+.top-header-deadline {
+	position: absolute;
+	right: 200px;
+	top: 100px;
+	width: 400px;
+	height:30px;
+	z-index: 999;
+}
 .top-header-search-box input[type="text"] {
 	color: #000;
 	border: 1px solid #c0c0c0;

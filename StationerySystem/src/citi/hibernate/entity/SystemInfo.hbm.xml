@@ -3,7 +3,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-23 19:40:30 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
-    <class name="citi.hibernate.entity.SystemInfo" table="systemInfo" catalog="ssdb" optimistic-lock="version">
+    <class name="citi.hibernate.entity.SystemInfo" table="systeminfo" catalog="ssdb" optimistic-lock="version">
         <id name="systemId" type="java.lang.Integer">
             <column name="system_id" />
             <generator class="identity" />
