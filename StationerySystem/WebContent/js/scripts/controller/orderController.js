@@ -6,8 +6,6 @@ define(['app'], function(app){
 			"Accept-Charset": "charset=utf-8"
 		}).then(function(response){
 			$scope.orderStationery = response.data;
-			/*$scope.orderStationery.stationery = response.data.stationery;
-			$scope.orderStationery.staff = response.data.staff;*/
 		}, function(err){
 			console.log(err);
 		});

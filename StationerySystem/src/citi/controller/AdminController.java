@@ -2,6 +2,7 @@ package citi.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -20,13 +21,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import citi.hibernate.entity.Orders;
 import citi.service.AdminService;
+import citi.service.OrdersService;
 
 @Controller
 public class AdminController {
 	private static final Log logger = LogFactory.getLog( AdminController.class);
 	@Resource
 	AdminService adminServiceImpl;
+	@Resource
+	OrdersService ordersServiceImpl;
 	@RequestMapping(value = "/setDeadline", method = RequestMethod.GET)
 	@ResponseBody
 	public String setDeadline(@RequestParam String deadline, HttpSession session){
@@ -51,6 +56,12 @@ public class AdminController {
 	@ResponseBody
 	public String setNote(@RequestParam String note, HttpSession session){
 		return adminServiceImpl.setNote(note, session);
+	}
+	@RequestMapping(value = "/searchOrdersBySoeid", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Orders> searchOrdersBySoeid(@RequestParam String soeid){
+		List<Orders> result = ordersServiceImpl.searchOrdersBySoeid(soeid);
+		return result;
 	}
 
 }

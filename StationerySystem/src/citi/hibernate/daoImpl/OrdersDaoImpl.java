@@ -30,6 +30,15 @@ public class OrdersDaoImpl implements OrdersDao {
 	}
 
 	@Override
+	public List<Orders> searchOrdersBySoeid(String soeId) {
+		// TODO Auto-generated method stub
+		Session sessionHibernate = HibernateUtil.getSession();
+		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
+		String queryString = "select new Orders(orders.orderId,staff,stationery,orders.quantity,orders.date) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.soeId = ?";
+		List<Orders> orders = sessionHibernate.createQuery(queryString).setParameter(0, soeId).list();
+		return orders;
+	}
+	@Override
 	public boolean saveOrders(int stationeryId, int quantity, HttpSession session) {
 		// TODO Auto-generated method stub
 		Session session2 = HibernateUtil.getSession();

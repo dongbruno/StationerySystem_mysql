@@ -62,7 +62,23 @@
 	<div class="clearfix"></div>
 	<br>
 	<form name="noteform" ng-submit="setNote()">
-		<textarea rows="4" cols="38" name="text"></textarea>
+		<textarea rows="4" cols="38" name="note"></textarea>
 		<input type="submit" value="发布" />
 	</form>
+	<div class="clearfix"></div>
+	<br>
+	<div class="s-stationery-head-left">
+		<h3>
+			<span>根据soeId搜索员工文具信息</span>
+		</h3>
+	</div>
+	<div class="clearfix"></div>
+	<br>
+	<form name="soeidform" ng-submit="searchOrdersBySoeid()">
+		<input type="text" name="soeidForSerch" value=""/> <input type="submit"
+			value="搜索" />
+	</form>
+	<div class="clearfix"></div>
+	<div ng-repeat="item in ordersBySoeid">
+	{{item.quantity}} {{item.stationery.standard}} {{item.stationery.name|shortName}}</div>
 </div>

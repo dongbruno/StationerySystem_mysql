@@ -23,7 +23,7 @@
             'show.adminTools': {
                 templateUrl: 'views/show-adminTools.html',
                 url: '/adminTools',
-                dependencies: ['controller/adminToolsController'],
+                dependencies: ['controller/adminToolsController', 'filter/shortNameFilter'],
                 allowAnonymous: true
             },
             'show.cart':{

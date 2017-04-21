@@ -27,6 +27,15 @@ OrdersDao ordersDaoImpl;
 	}
 
 	@Override
+	public List<Orders> searchOrdersBySoeid(String soeid) {
+		// TODO Auto-generated method stub
+		 HibernateUtil.openSession();
+		 List<Orders> orders = ordersDaoImpl.searchOrdersBySoeid(soeid);
+         HibernateUtil.closeSession();
+         return orders;
+	}
+	
+	@Override
 	public boolean saveOrders(JsonArray orderJsonArray, HttpSession session) {
 		// TODO Auto-generated method stub
 		 for(int i=0;i<orderJsonArray.size();i++){
@@ -106,4 +115,6 @@ OrdersDao ordersDaoImpl;
          HibernateUtil.closeSession();
          return orders;
 	}
+
+	
 }

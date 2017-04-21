@@ -64,7 +64,8 @@ StaffDao staffDaoImpl;
 		int unique = generateUniqueValue();
 		String location = generateLocation();
 		String unit = generateUnit();
-		Staff staff = new Staff("YB"+unique, "张三"+unique, false, location, unit, "team"+unique);
+		Staff staff = new Staff("YB"+unique, "张三"+unique, false, "LJZ", "VIII", "muni");
+//		Staff staff = new Staff("YB"+unique, "张三"+unique, false, location, unit, "team"+unique);
     	insertStaff(staff);
 		return staff;
 	}

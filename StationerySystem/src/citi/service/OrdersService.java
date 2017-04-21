@@ -12,6 +12,8 @@ import citi.hibernate.entity.Orders;
 public interface OrdersService {
 
 	List<Orders> getOrders(HttpSession session);
+	
+	List<Orders> searchOrdersBySoeid(String soeid);
 
 	boolean submitOrders(JsonArray orderJsonArray, HttpSession session);
 
