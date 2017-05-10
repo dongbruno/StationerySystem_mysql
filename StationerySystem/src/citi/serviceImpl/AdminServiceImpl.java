@@ -34,20 +34,17 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public String downloadFile(String dlType, String location) {
-		// TODO Auto-generated method stub
 		String result = null;
-		if(dlType.equalsIgnoreCase("final_sheet")){
+		if(dlType.equalsIgnoreCase("purchase_sheet")){
 			try {
 				result = ExportExcelImpl.generatePurchaseExcel(location);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(dlType.equalsIgnoreCase("dispatch_detail_ByUnit")){
+		} else if(dlType.equalsIgnoreCase("dispatch_sheet")){
 			try {
 				result = ExportExcelImpl.generateDispatchExcel(location);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

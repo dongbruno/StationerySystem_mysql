@@ -20,19 +20,23 @@ public class AdminDaoImpl implements AdminDao {
 		Query query = session.createQuery(queryString).setParameter(0, note).setParameter(1, new Date()).setParameter(2, soeId).setParameter(3, 1);
 		query.executeUpdate();
 		session.getTransaction().commit();
-		return "success";
+		return "发布公告成功！";
 	}
 
 	@Override
 	public String setDeadline(String deadline, String soeId) {
 		// TODO Auto-generated method stub
+		if(deadline.equalsIgnoreCase("")){
+			return "格式错误，设置截止日期失败！";
+		}else{
 		Session session = HibernateUtil.getSession();
 		session.beginTransaction();
 		String queryString = "update SystemInfo s set s.deadline = ?, s.date = ?, s.operator = ? where s.systemId = ?";
 		Query query = session.createQuery(queryString).setParameter(0, toDateFromStr(deadline)).setParameter(1, new Date()).setParameter(2, soeId).setParameter(3, 1);
 		query.executeUpdate();
 		session.getTransaction().commit();
-		return "success";
+		return "设置截止日期成功！";
+		}
 	}
 	private Date toDateFromStr(String sourceTime){
 		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");

@@ -1,5 +1,7 @@
 package citi.controller;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -39,23 +41,27 @@ public class OrdersController {
 	
 	@RequestMapping(value = "/saveOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String saveOrders(@RequestBody String orderJson, HttpSession session){
+	public Map<String, String> saveOrders(@RequestBody String orderJson, HttpSession session){
 		JsonArray orderJsonArray=new JsonParser().parse(orderJson).getAsJsonArray();
 		boolean result = ordersServiceImpl.saveOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("saveOrders="+result);
 		}
-		return "success";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("result", "保存订单成功！");
+		return map;
 	}
 	@RequestMapping(value = "/submitOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public String submitOrders(@RequestBody String orderJson, HttpSession session){
+	public Map<String, String> submitOrders(@RequestBody String orderJson, HttpSession session){
 		JsonArray orderJsonArray=new JsonParser().parse(orderJson).getAsJsonArray();
 		boolean result = ordersServiceImpl.submitOrders(orderJsonArray, session);
 		if(logger.isDebugEnabled()){
 			logger.debug("submitOrders="+result);
 		}
-		return "success";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("result", "提交订单成功！");
+		return map;
 	}
 	
 

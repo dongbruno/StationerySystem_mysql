@@ -3,9 +3,7 @@ package citi.export.excel;
 import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
@@ -17,7 +15,6 @@ import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.stereotype.Component;
-
 import citi.service.OrdersService;
 @Component
 public class ExportExcelImpl implements ExportExcel {
@@ -37,7 +34,7 @@ public class ExportExcelImpl implements ExportExcel {
 		generateUnitSheets(wb, sheet, location, unit, titleName);
 		}
 		
-		String result = "D:/export2003_" + System.currentTimeMillis() + ".xls";
+		String result = "purchase_" + System.currentTimeMillis() + ".xls";
 		FileOutputStream fileOut = new FileOutputStream(result);
 		wb.write(fileOut);
 		fileOut.close();
@@ -101,7 +98,7 @@ public class ExportExcelImpl implements ExportExcel {
 		indexRow = generateUnitSheets(wb, sheet, location, unit, titleName);
 		generateTeamOrdersInfo(wb, sheet, location, unit, indexRow);
 		}
-		String result = "D:/export2003_" + System.currentTimeMillis() + ".xls";
+		String result = "dispatch_" + System.currentTimeMillis() + ".xls";
 		FileOutputStream fileOut = new FileOutputStream(result);
 		wb.write(fileOut);
 		fileOut.close();

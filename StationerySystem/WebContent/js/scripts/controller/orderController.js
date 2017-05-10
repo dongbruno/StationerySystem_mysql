@@ -83,7 +83,7 @@ define(['app'], function(app){
 					'Content-Type': 'application/json'
 				}
 			}).then(function(response){
-				alert(response.data);
+				alert(response.data["result"]);
 			}, function(err){
 				alert(err);
 			});
