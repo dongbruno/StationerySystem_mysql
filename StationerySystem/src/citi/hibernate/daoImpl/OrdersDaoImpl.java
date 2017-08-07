@@ -22,7 +22,7 @@ public class OrdersDaoImpl implements OrdersDao {
 	public List<Orders> getOrders(HttpSession session) {
 		// TODO Auto-generated method stub
 		Session sessionHibernate = HibernateUtil.getSession();
-		//String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
+		// HQL String queryString = "select orders.stationery.stationeryId as stationeryId,orders.stationery.name as name,orders.stationery.price as price,orders.quantity as quantity,orders.stationery.standard as standard,orders.stationery.kind as kind from Orders as orders where orders.staff.soeId = ?";
 		String queryString = "select new Orders(orders.orderId,staff,stationery,orders.quantity,orders.date) from Orders orders left join orders.staff staff left join orders.stationery stationery where staff.soeId = ?";
 		String soeId = (String) session.getAttribute("soeId");
 		List<Orders> orders = sessionHibernate.createQuery(queryString).setParameter(0, soeId).list();
